@@ -2,7 +2,7 @@ import Head from "next/head";
 import {loadGlobal} from "../../lib/strapi";
 import {Button, CssBaseline} from "@mui/material";
 import Footer from "./default/footer";
-import Header from "./default/Header";
+import Header from "./default/header";
 
 export default function Layout({ children }) {
     //console.log('Layout props:', children)
