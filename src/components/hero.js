@@ -6,15 +6,13 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
 
-const baseMediaURL = process.env.NEXT_PUBLIC_MEDIA_URL
-
 export default function Hero({hero}) {
     //console.log('VVV', hero)
     if (!hero) return <></>
 
     const styles = {
         paperContainer: {
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${baseMediaURL+hero.image.data.attributes.formats.large.url})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${hero.image.data.attributes.formats.large.url})`,
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",

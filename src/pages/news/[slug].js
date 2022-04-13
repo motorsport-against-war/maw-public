@@ -22,7 +22,7 @@ const Article = ({ menu, meta, article, error }) => {
             </h1>
 
             <Grid container justifyContent="center">
-                <Image
+                <img
                     /*src={`https://images.weserv.nl/?url=https://motorsport-against-war.s3.eu-central-1.amazonaws.com/medium_277161102_7202581566481814_673016036970988432_n_da7c1f27e0.jpeg&w=560&h=420&fit=cover`}*/
                     src={process.env.FAKE_WESERV_IMAGE || `//images.weserv.nl/?url=${baseMediaURL}${article.cover.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
                     alt={article.title}
