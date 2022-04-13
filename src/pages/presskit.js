@@ -1,31 +1,30 @@
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import {loadGlobal, loadPage} from "../../lib/strapi";
+import {loadGlobal, loadPage, loadPressKits} from "../../lib/strapi";
 import Link from 'next/link'
 import Footer from "../layouts/default/footer";
 import Typography from "@mui/material/Typography";
 import React from "react";
 import PageHeader from "../components/pageHeader";
 import PageBody from "../components/pageBody";
+import PresskitList from "../components/presskitList";
 
-const Presskit = ({ menu, meta, hero, page, error }) => {
+const PressKit = ({ menu, meta, hero, page, pressKits, error }) => {
 
   return (
     <div className={styles.container}>
         <PageHeader title={page.Meta.title}/>
         <PageBody body={page.body}/>
+        <PresskitList items={pressKits}/>
     </div>
   )
 }
 
-/*Home.getInitialProps = async ctx => {
-  return loadGlobal()
-};*/
-
 export const  getStaticProps = async () => {
   const { menu, meta, hero } = await loadGlobal()
   const { page } = await loadPage('/presskit')
-  return { props: { menu, meta, hero, page } }
+  const { pressKits } = await loadPressKits()
+  return { props: { menu, meta, hero, pressKits, page } }
 }
 
-export default Presskit;
+export default PressKit;
