@@ -24,7 +24,7 @@ export const  getStaticProps = async () => {
   const { menu, meta, hero } = await loadGlobal()
   const { page } = await loadPage('/presskit')
   const { pressKits } = await loadPressKits()
-  return { props: { menu, meta, hero, pressKits, page } }
+  return { props: { menu, meta, hero, pressKits, page }, revalidate: 10 }
 }
 
 export default PressKit;

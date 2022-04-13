@@ -25,7 +25,7 @@ const Donate = ({ menu, meta, hero, page, error }) => {
 export const  getStaticProps = async () => {
     const { menu, meta, hero } = await loadGlobal()
     const { page } = await loadPage('/donate')
-    return { props: { menu, meta, hero, page } }
+    return { props: { menu, meta, hero, page }, revalidate: 10 }
 }
 
 export default Donate;
