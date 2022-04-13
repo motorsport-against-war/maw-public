@@ -3,23 +3,19 @@ import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import {loadArticles, loadGlobal, loadPage} from "../../../lib/strapi";
 import Link from 'next/link'
+import ArticlesList from "../../components/articlesList";
 
-const News = ({ menu, meta, articles, error }) => {
+const News = ({ menu, meta, page, articles, error }) => {
 
   return (
-      <>
+      <section>
         <h1 className={styles.title}>
-            {meta.title}
+            {page.Meta.title}
         </h1>
 
-        list:
-        <ul>
-          {articles.map(function(a, idx){
-            return (<li key={idx}><Link href={'/news/'+a.id}><a>{a.attributes.title}</a></Link></li>)
-          })}
-        </ul>
+        <ArticlesList articles={articles}/>
 
-      </>
+      </section>
   )
 }
 
@@ -28,10 +24,10 @@ const News = ({ menu, meta, articles, error }) => {
 };*/
 
 export const  getStaticProps = async () => {
-  const { menu, metaGlobal } = await loadGlobal()
-  const { meta:metaLocal } = await loadPage('news')
-  const {articles} = await loadArticles()
-  return { props: { menu, meta:metaLocal||metaGlobal, articles } }
+  const { menu, meta, hero } = await loadGlobal()
+  const { page } = await loadPage('/news')
+  const { articles } = await loadArticles()
+  return { props: { menu, meta, hero, page, articles } }
 }
 
 export default News;

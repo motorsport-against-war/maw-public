@@ -1,7 +1,7 @@
 import * as React from 'react';
-import ResponsiveAppBar from "./ResponsiveAppBar";
+import ResponsiveAppBar from "./responsiveAppBar";
 
-export default function Header({menu}) {
+export default function Header({menu,meta}) {
 
     return (
         <>

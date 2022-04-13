@@ -42,16 +42,37 @@ const ResponsiveAppBar = ({menu}) => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+
+                    {/* logo for desktop */}
                     <Typography
                         variant="h6"
                         noWrap
                         component="div"
                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                     >
-                        LOGO
+                        <Box sx={{pt:1}}>
+                            <Link href="/">
+                                <img alt="Brand logo1" src="/images/logo_small.png" width={60} />
+                            </Link>
+                        </Box>
                     </Typography>
 
-                    {/*<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    {/* logo for mobile */}
+                    <Typography
+                        variant="h6"
+                        noWrap
+                        component="div"
+                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                    >
+                        <Box sx={{pt:1}}>
+                            <Link href="/">
+                                <img alt="Brand logo2" src="/images/logo_small.png" width={60} />
+                            </Link>
+                        </Box>
+                    </Typography>
+
+                    {/* burger for mobile */}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }} justifyContent="flex-end">
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -63,6 +84,7 @@ const ResponsiveAppBar = ({menu}) => {
                             <MenuIcon />
                         </IconButton>
                         <Menu
+                            open={anchorElNav?true:false}
                             id="menu-appbar"
                             anchorEl={anchorElNav}
                             anchorOrigin={{
@@ -80,29 +102,25 @@ const ResponsiveAppBar = ({menu}) => {
                             }}
                         >
                             {menu.map((menuPoint) => (
-                                <MenuItem key={menuPoint.id} onClick={router.push(menuPoint.href)}>
-                                    <Typography textAlign="center">{menuPoint.title}</Typography>
+                                <MenuItem key={menuPoint.id}>
+                                    <Link href={menuPoint.href}>
+                                        <Typography textAlign="center">{menuPoint.title}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>*/}
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        LOGO
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    </Box>
+
+                    {/* menu for desktop */}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }} justifyContent="flex-end">
                         {menu.map((menuPoint) => (
                             <Link href={menuPoint.href}
                                   key={menuPoint.id}>
                                 <Button
                                     sx={{ my: 2, color: 'white', display: 'block' }}
                                 >
-                                {menuPoint.title}
-                            </Button>
+                                    {menuPoint.title}
+                                </Button>
                             </Link>
                         ))}
                     </Box>

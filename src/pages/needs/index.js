@@ -3,12 +3,12 @@ import styles from '../../styles/Home.module.css'
 import {loadArticles, loadGlobal, loadPage} from "../../../lib/strapi";
 import Link from 'next/link'
 
-const Index = ({ menu, meta, error }) => {
+const Needs = ({ menu, meta, page, error }) => {
 
   return (
     <>
         <h1 className={styles.title}>
-          {meta.title}
+          {page.Meta.title}
         </h1>
 
     </>
@@ -16,9 +16,9 @@ const Index = ({ menu, meta, error }) => {
 }
 
 export const getStaticProps = async () => {
-    const { menu, meta:metaGlobal } = await loadGlobal()
-    const { meta:metaLocal, error } = await loadPage('need')
-    return { props: { menu, meta:metaLocal||metaGlobal } }
+    const { menu, meta, hero } = await loadGlobal()
+    const { page } = await loadPage('/needs')
+    return { props: { menu, meta, hero, page } }
 }
 
-export default Index;
+export default Needs;
