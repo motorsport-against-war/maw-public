@@ -7,6 +7,9 @@ import ArticlesList from "../../components/articlesList";
 import Box from "@mui/material/Box";
 import React from "react";
 import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import PageHeader from "../../components/pageHeader";
+import PageBody from "../../components/pageBody";
 
 const baseMediaURL = process.env.NEXT_PUBLIC_MEDIA_URL
 
@@ -16,10 +19,9 @@ const Article = ({ menu, meta, article, error }) => {
     if (!article) return <></>
 
     return (
-        <section>
-            <h1 className={styles.title}>
-                {article.title}
-            </h1>
+        <section className={styles.container}>
+            <PageHeader title={article.title}/>
+            <PageBody body={article.body}/>
 
             <Grid container justifyContent="center">
                 <img

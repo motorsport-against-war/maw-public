@@ -12,7 +12,6 @@ import React from "react";
 import {FormatDate} from "../../lib/time";
 import Link from "@mui/material/Link";
 
-
 export default function ArticlesList({articles}) {
 
     if (!articles) return <></>
@@ -39,7 +38,7 @@ export default function ArticlesList({articles}) {
                                 <Link href={'/news/'+article.id}>
                                     <img
                                         /*src={`https://images.weserv.nl/?url=https://motorsport-against-war.s3.eu-central-1.amazonaws.com/medium_277161102_7202581566481814_673016036970988432_n_da7c1f27e0.jpeg&w=560&h=420&fit=cover`}*/
-                                        src={process.env.FAKE_WESERV_IMAGE || `https://images.weserv.nl/?url=${article.attributes.cover.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
+                                        src={process.env.NEXT_PUBLIC_FAKE_WESERV_IMAGE || `https://images.weserv.nl/?url=${article.attributes.cover.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
                                         alt={article.attributes.title}
                                         /*loading="lazy"*/
                                     />

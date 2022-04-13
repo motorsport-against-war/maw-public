@@ -4,17 +4,18 @@ import styles from '../../styles/Home.module.css'
 import {loadArticles, loadGlobal, loadPage} from "../../../lib/strapi";
 import Link from 'next/link'
 import ArticlesList from "../../components/articlesList";
+import Typography from "@mui/material/Typography";
+import React from "react";
+import PageHeader from "../../components/pageHeader";
+import PageBody from "../../components/pageBody";
 
 const News = ({ menu, meta, page, articles, error }) => {
 
   return (
-      <section>
-        <h1 className={styles.title}>
-            {page.Meta.title}
-        </h1>
-
-        <ArticlesList articles={articles}/>
-
+      <section className={styles.container}>
+          <PageHeader title={page.Meta.title}/>
+          <PageBody body={page.body}/>
+          <ArticlesList articles={articles}/>
       </section>
   )
 }
