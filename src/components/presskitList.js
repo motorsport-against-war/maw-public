@@ -37,7 +37,7 @@ export default function PresskitList({items}) {
                             >
                                 <img
                                     /*src={`https://images.weserv.nl/?url=https://motorsport-against-war.s3.eu-central-1.amazonaws.com/medium_277161102_7202581566481814_673016036970988432_n_da7c1f27e0.jpeg&w=560&h=420&fit=cover`}*/
-                                    src={process.env.NEXT_PUBLIC_FAKE_WESERV_IMAGE || `https://images.weserv.nl/?url=${item.attributes.cover.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
+                                    src={process.env.NEXT_PUBLIC_FAKE_WESERV_IMAGE || `https://images.weserv.nl/?url=${item.attributes.item.imageIcon.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
                                     alt={item.attributes.title}
                                     /*loading="lazy"*/
                                 />
