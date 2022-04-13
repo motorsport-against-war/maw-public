@@ -52,7 +52,7 @@ export default function ThreeColumnFooter() {
                     <Grid item xs={12} md={6}>
                         <img alt="Brand logo" src="/images/logo_big.jpg" width="100%" />
                         <Typography color="text.secondary" sx={{ mt: 2 }} variant="body2">
-                            <Link href="mailto:motorsportagainstwar@gmail.com" target="_blank">motorsportagainstwar@gmail.com</Link>
+                            <Link href="mailto:contact@motorsportagainstwar.org" target="_blank">contact@motorsportagainstwar.org</Link>
                         </Typography>
                         {/*<Stack direction="row" spacing={1} sx={{ mt: 2 }}>
                             <IconButton aria-label="Facebook">
