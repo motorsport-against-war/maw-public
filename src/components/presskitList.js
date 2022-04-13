@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import React from "react";
 import {FormatDate} from "../../lib/time";
 import Link from "@mui/material/Link";
+import {FormatImageURL} from "../../lib/utils";
 
 export default function PresskitList({items}) {
 
@@ -37,7 +38,7 @@ export default function PresskitList({items}) {
                             >
                                 <img
                                     /*src={`https://images.weserv.nl/?url=https://motorsport-against-war.s3.eu-central-1.amazonaws.com/medium_277161102_7202581566481814_673016036970988432_n_da7c1f27e0.jpeg&w=560&h=420&fit=cover`}*/
-                                    src={process.env.NEXT_PUBLIC_FAKE_WESERV_IMAGE || `https://images.weserv.nl/?url=${item.attributes.item.imageIcon.data.attributes.formats.medium?.url}&w=560&h=420&fit=cover`}
+                                    src={FormatImageURL(item.attributes.item.imageIcon.data.attributes.formats.thumbnail.url)}
                                     alt={item.attributes.title}
                                     /*loading="lazy"*/
                                 />
@@ -47,7 +48,7 @@ export default function PresskitList({items}) {
                                     src={`${baseMediaURL+article.attributes.cover.data.attributes.formats.medium.url}`}
                                     sx={{ width: 56, height: 56, mb: 2 }}
                                 />*/}
-                                <Typography variant="h6" component="div">
+                                <Typography variant="h6" component="div" sx={{ mt: 2 }}>
                                    {item.attributes.item.title}
                                 </Typography>
                                 <Typography color="text.secondary" variant="body2">
@@ -55,7 +56,7 @@ export default function PresskitList({items}) {
                                 </Typography>
                             </CardContent>
                             <CardActions sx={{ justifyContent: "center" }}>
-                                <Button variant="outlined" href={item.attributes.item.imageOrig.data.attributes.url} target="_blank">
+                                <Button variant="outlined" href={FormatImageURL(item.attributes.item.imageOrig.data.attributes.url)} target="_blank">
                                     Download
                                 </Button>
                             </CardActions>
