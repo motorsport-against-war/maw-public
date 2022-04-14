@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
         return (
             <Html lang="en">
                 <Head>
+                    <meta name="verify-paysera" content="bc0255a3df7d2997f8ed5d799a68c61b"/>
                     <link
                         rel="stylesheet"
                         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"

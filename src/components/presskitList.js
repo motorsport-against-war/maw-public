@@ -12,6 +12,7 @@ import React from "react";
 import {FormatDate} from "../../lib/time";
 import Link from "@mui/material/Link";
 import {FormatImageURL} from "../../lib/utils";
+import * as ga from "../../lib/ga";
 
 export default function PresskitList({items}) {
 
@@ -56,7 +57,12 @@ export default function PresskitList({items}) {
                                 </Typography>
                             </CardContent>
                             <CardActions sx={{ justifyContent: "center" }}>
-                                <Button variant="outlined" href={FormatImageURL(item.attributes.item.imageOrig.data.attributes.url)} target="_blank">
+                                <Button variant="outlined" href={FormatImageURL(item.attributes.item.imageOrig.data.attributes.url)} target="_blank" onClick={()=>ga.event({
+                                    action: "download_presskit",
+                                    params : {
+                                        item_id: item.id
+                                    }
+                                })}>
                                     Download
                                 </Button>
                             </CardActions>
