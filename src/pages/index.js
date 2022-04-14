@@ -14,7 +14,6 @@ const Home = ({ menu, meta, hero, page, error }) => {
     <div className={styles.container}>
         <PageHeader title={page.Meta.title}/>
         <PageBody body={page.body}/>
-
     </div>
   )
 }

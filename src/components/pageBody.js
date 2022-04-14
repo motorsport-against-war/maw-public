@@ -9,8 +9,8 @@ import md from "markdown-it"
 
 export default function PageBody({body}) {
 
+    if (!body) return <></>
     return (
-        <Typography sx={{ mt: 4 }} dangerouslySetInnerHTML={{ __html: md().render(body) }}>
-        </Typography>
+        <Typography sx={{ mt: 4 }} dangerouslySetInnerHTML={{ __html: md().render(body) }}/>
     );
 }

@@ -10,7 +10,6 @@ import PageHeader from "../../components/pageHeader";
 import PageBody from "../../components/pageBody";
 
 const News = ({ menu, meta, page, articles, error }) => {
-
   return (
       <section className={styles.container}>
           <PageHeader title={page.Meta.title}/>
