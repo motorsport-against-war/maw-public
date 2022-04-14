@@ -5,8 +5,7 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
-
-const baseMediaURL = process.env.NEXT_PUBLIC_MEDIA_URL
+import {FormatImageURL} from "../../lib/utils";
 
 export default function Hero({hero}) {
     //console.log('VVV', hero)
@@ -14,7 +13,7 @@ export default function Hero({hero}) {
 
     const styles = {
         paperContainer: {
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${baseMediaURL+hero.image.data.attributes.formats.large.url})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${FormatImageURL(hero.image.data.attributes.formats.large.url)})`,
             backgroundPosition: "center center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",

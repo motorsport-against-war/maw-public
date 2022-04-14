@@ -5,6 +5,8 @@ import Footer from "./default/footer";
 import Header from "./default/header";
 import Hero from "../components/hero";
 import * as React from "react";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
 
 export default function Layout({ children }) {
     //console.log('Layout props:', children)
@@ -18,7 +20,20 @@ export default function Layout({ children }) {
             <CssBaseline />
             {/*<Header menu={children?.props?.menu}/>*/}
             <Hero hero={children?.props?.hero}/>
-            <main>{children}</main>
+            <Box>
+            <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                style={{ minHeight: '100vh', maxWidth:'1024px' }}
+            >
+                <Grid item xs={3}>
+                    {children}
+                </Grid>
+            </Grid>
+            </Box>
             <Footer menu={children?.props?.menu}/>
         </>
     )
