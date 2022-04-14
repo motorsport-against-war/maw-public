@@ -16,7 +16,7 @@ export default function Layout({ children }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <CssBaseline />
-            <Header menu={children?.props?.menu}/>
+            {/*<Header menu={children?.props?.menu}/>*/}
             <Hero hero={children?.props?.hero}/>
             <main>{children}</main>
             <Footer menu={children?.props?.menu}/>
